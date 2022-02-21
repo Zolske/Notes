@@ -107,7 +107,9 @@ Here is how you would pipe together commandOne and commandTwo:
 
   > Redirecting during a pipeline breaks the pipeline.
 
-  For example, this wouldn’t work:
+  ![tee command](images/tee_command.png)
+
+  *For example, this wouldn’t work:*
   `commandOne –options arguments > snapshot.txt | commandTwo –options arguments`
   *Because redirection is processed by the shell before piping is, snapshot.txt would be created,*
   *but this locks up the standard output stream and therefore no data can be passed through the*
@@ -129,8 +131,44 @@ Here is how you would pipe together commandOne and commandTwo:
   `commandOne –options arguments | echo`
   *This would work:*
   `commandOne –options arguments | xargs echo`
+  
+  **Note:** Commands you use with xargs can still have their own arguments.
 
-## Using the Manual :
+## Aliases
+
+> Aliases allow you to save your pipelines and commands with easy to remember nicknames so
+> that they can be used later much easier.
+
+1. You define aliases in your `.bash_aliases` file in your home directory. If it does not exist, you
+   need to create it spelled exactly as shown. Note that the preceding period (.) must be included
+   and there should be no file extension (such as .txt, or .pdf).
+2. Here is how you define an alias in .bash_aliases:
+   `alias aliasName=”THING YOU WANT TO ALIAS”`
+   Notice that there are no spaces between the equals sign (=) and the aliasName and the quotes
+   (“). The quotes can be double quote (“) or single quotes (‘).
+
+*Let’s take an example:*
+`alias calmagic=”cal –A 1 –B 1 12 2017”`
+With this alias defined in our .bash_aliases file, whenever we run the calmagic command it is as if we ran the cal –A 1 –B 1 12 2017 command.
+calmagic is now said to be an alias of “cal –A 1 –B 1 12 2017”.
+NB: Aliases may contain either one command or an entire pipeline!
+
+- **Piping to an alias**
+  If the first command in an alias accepts standard input, then the alias can be piped to; even if it is an entire pipeline!
+  *Our alias is currently:*
+  `alias calmagic=”cal –A 1 –B 1 12 2017”`
+  *cal is the first command in this alias, but cal doesn’t accept standard input.*
+  *Therefore, this would not work:*
+  `commandOne –options arguments | calmagic`
+  *However, if we adjust our alias so that it can accept standard input.*
+  `alias calmagic=”xargs cal –A 1 –B 1 12 2017”`
+  *This will now work:*
+  `commandOne –options arguments | calmagic`
+  And yes, you can pipe out of an alias as well, if the alias produces standard output.
+  `commandOne –options arguments | calmagic | commandTwo –options arguments`
+  Think of aliases as building blocks that you can use in more sophisticated pipelines.
+
+## Using the Manual
 
 | command               | description                                                  |
 | --------------------- | ------------------------------------------------------------ |
