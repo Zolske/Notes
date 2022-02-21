@@ -64,7 +64,7 @@
 
 ## Command Input and Output
 
-![command_input_output](/home/zoltan/Documents/Notes/Linux Command Line/command_input_output.png)
+![command_input_output](images/command_input_output.png)
 
 Standard Data Streams can be redirected and are identified using their stream number.
 Redirection of the standard output of one command to the standard input of another
