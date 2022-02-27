@@ -1,5 +1,7 @@
 # The Linux Command Line
 
+*Notes are taking from [Ziyad Yehia](https://www.udemy.com/user/ziyadyehia2/) [Udemy](https://www.udemy.com/) course [Linux Mastery: Master the Linux Command](https://www.udemy.com/course/linux-mastery/#instructor-1).*
+
 [toc]
 
 ## Important Definitions
@@ -10,7 +12,9 @@
 | Shell    | A program that interprets commands for meaning.              |
 | Terminal | A graphical window where commands can be typed and submitted to the shell. |
 
-## Command Structure
+## Command Structure  
+
+(*[Udemy 7: command structure](https://www.udemy.com/course/linux-mastery/learn/lecture/8227618#overview)*)
 
 - Each command follows the same overarching structure:  
 
@@ -62,9 +66,11 @@
       *The B option has its own argument (1).*
       *And the cal command has 2 command line arguments (12 and 2017).*
 
-## Command Input and Output
+## Command Input and Output  
 
-![command_input_output](images/command_input_output.png)
+(*[Udemy 11: input / output](https://www.udemy.com/course/linux-mastery/learn/lecture/8266810#overview)*)
+
+![command_input_output](command_input_output.png)
 
 Standard Data Streams can be redirected and are identified using their stream number.
 Redirection of the standard output of one command to the standard input of another
@@ -92,7 +98,9 @@ command is known as piping.
   *Or the short form, with no stream number:*
   `commandName –options arguments < input_source`
 
-## Piping
+## Piping  
+
+(*[Udemy 14: piping](https://www.udemy.com/course/linux-mastery/learn/lecture/8268162#overview)*)
 
 > Piping is the connection of the standard output of one command to the standard input of
 > another command.
@@ -107,7 +115,7 @@ Here is how you would pipe together commandOne and commandTwo:
 
   > Redirecting during a pipeline breaks the pipeline.
 
-  ![tee command](images/tee_command.png)
+  ![tee command](tee_command.png)
 
   *For example, this wouldn’t work:*
   `commandOne –options arguments > snapshot.txt | commandTwo –options arguments`
@@ -134,7 +142,9 @@ Here is how you would pipe together commandOne and commandTwo:
   
   **Note:** Commands you use with xargs can still have their own arguments.
 
-## Aliases
+## Aliases  
+
+(*[Udemy 17: aliases](https://www.udemy.com/course/linux-mastery/learn/lecture/8289492#overview)*)
 
 > Aliases allow you to save your pipelines and commands with easy to remember nicknames so
 > that they can be used later much easier.
@@ -170,7 +180,9 @@ NB: Aliases may contain either one command or an entire pipeline!
   `commandOne –options arguments | calmagic | commandTwo –options arguments`
   Think of aliases as building blocks that you can use in more sophisticated pipelines.
 
-## Using the Manual
+## Using the Manual  
+
+(*[Udemy 8: manual](https://www.udemy.com/course/linux-mastery/learn/lecture/8262650#overview)*)
 
 | command               | description                                                  |
 | --------------------- | ------------------------------------------------------------ |
@@ -190,7 +202,7 @@ Symbols and their meaning in the manuale:
 
 ## Important Short Cuts & Commands
 
-- **Opening and Closing the Terminal :**
+- **Opening and Closing the Terminal :**  (*[Udemy 9: open close terminal](https://www.udemy.com/course/linux-mastery/learn/lecture/8202508#overview)*)
 
 | description          | short cut     |
 | -------------------- | ------------- |
@@ -206,7 +218,7 @@ Symbols and their meaning in the manuale:
 | !50        | Run the command that is on line 50 of the output from the history command. (replace “50” as needed). |
 | history -c | clear the history list by deleting all of the entries        |
 
-- **Key Commands for Navigating the File System**
+- **Key Commands for Navigating the File System** (*[Udemy 20: file system](https://www.udemy.com/course/linux-mastery/learn/lecture/8345744#overview)*)
 
 | command              | description                                                  |
 | -------------------- | ------------------------------------------------------------ |
@@ -222,7 +234,7 @@ Symbols and their meaning in the manuale:
 | .       | The current folder.                         |
 | ..      | The parent directory of the current folder. |
 
-- **Wildcards and Regular Expressions**
+- **Wildcards and Regular Expressions** *([Udemy 25: wildcards](https://www.udemy.com/course/linux-mastery/learn/lecture/7899304#overview)*)
 
 > **Regular expressions** are patterns that can be used to match text. In Linux, they are used to allow a user to make rather generic expressions about what files they want a command to operate on.
 > Creating regular expressions to match filenames is known as **globbing**.  
@@ -238,19 +250,19 @@ The regular expression patterns can be made using **special building blocks** kn
 
 - **Creating Files and Directories**
 
-| command            | description                                             |
-| ------------------ | ------------------------------------------------------- |
-| touch \<file>      | Creates an empty file. e.g. `touch ~/Desktop/file1.txt` |
-| mkdir \<directory> | Creates an empty directory. e.g. `mkdir ~/newdir`       |
+| command              | description                                             |
+| -------------------- | ------------------------------------------------------- |
+| touch \<*FILE*>      | Creates an empty file. e.g. `touch ~/Desktop/file1.txt` |
+| mkdir \<*DIRECTORY*> | Creates an empty directory. e.g. `mkdir ~/newdir`       |
 
 - **Deleting Files and Directories**
 
-| command                  | description                                                  |
-| ------------------------ | ------------------------------------------------------------ |
-| rm \<file>               | Remove a file e.g. `rm ~/Desktop/file1.txt`                  |
-| rm -r \<directory>       | Removes a directory. e.g. `rm -r ~/newdir`                   |
-| rm –i                    | Removes in an interactive manner. This is a good safety measure. |
-| rmdir \<empty directory> | Only remove empty directories e.g. `rmdir ~/emptydir`        |
+| command                    | description                                                  |
+| -------------------------- | ------------------------------------------------------------ |
+| rm \<*FILE*>               | Remove a file e.g. `rm ~/Desktop/file1.txt`                  |
+| rm -r \<*DIRECTORY*>       | Removes a directory. e.g. `rm -r ~/newdir`                   |
+| rm –i                      | Removes in an interactive manner. This is a good safety measure. |
+| rmdir \<*EMPTY DIRECTORY*> | Only remove empty directories e.g. `rmdir ~/emptydir`        |
 
 - **Editing Files with the Nano Editor**
 
@@ -259,7 +271,7 @@ The regular expression patterns can be made using **special building blocks** kn
 | ^       | This is the **CTRL** key on your keyboard. For example, **^O** is **CTRL + O**. |
 | M-      | This is the “meta” key on your keyboard. Depending on your keyboard layout this may be the **ALT**, **ESC**, **CMD** key. Try it out Assuming M- is the ALT key, then M-X is ALT + X |
 
-- **The Locate Command**
+- **The Locate Command** (*[Udemy 35: locate](https://www.udemy.com/course/linux-mastery/learn/lecture/8433238#overview)*)
 
 > The **`locate`** command searches a **database** on your file system for the files that match the text (or regular expression) that you provide it as a command line argument. If results are found, the locate command will return the **absolute path** to all matching files.  
 
@@ -271,12 +283,12 @@ Below are some commands to update the database and some reassuring procedures in
 
 | command           | description                                                  |
 | ----------------- | ------------------------------------------------------------ |
-| Locate -S         | Print information about the database file.                   |
+| locate -S         | Print information about the database file.                   |
 | sudo updatedb     | Update the database. As the updatedb command is an administrator command, the sudo command is used to run updatedb as the root user (the administrator) |
-| Locate --existing | Check whether a result actually exists before returning it.  |
+| locate --existing | Check whether a result actually exists before returning it.  |
 | locate –limit 5   | Limit the output to only show 5 results                      |
 
-- **The Find Command**
+- **The Find Command** (*[Udemy 37: find](https://www.udemy.com/course/linux-mastery/learn/lecture/8479086#overview)*)
 
 > The **`find`** command can be used for more sophisticated search tasks than the locate command. This is made possible due to the many powerful options that the **`find`** command has. The first thing to note is that the **`find`** command will list both files and directories, below the point the file tree that it is told to start at.  
 
@@ -291,10 +303,10 @@ Will list everything on the file system below the base directory, provided that 
 
 | command       | description                                                  |
 | ------------- | ------------------------------------------------------------ |
-| -type         | Only list items of a certain type. –type f restricts the search to file and –type d restricts the search to directories. |
+| -type         | Only list items of a certain type. **`–type f`** restricts the search to file and **`–type d`** restricts the search to directories. |
 | -name “*.txt” | Search for items matching a certain name. This name may contain a regular expression and **should be enclosed in double quotes** as shown. In this example, the find command will return all items with names ending in .txt. |
-| -iname        | Same as –name but uppercase and lowercase do not matter.     |
-| -size         | Find files based on their size. e.g –size +100k finds files over 100 KiB in size –size -5M finds files less than 5MiB in size. Other units include G for GiB and c for bytes[^footnote]. |
+| -iname        | Same as **`–name`** but uppercase and lowercase do not matter. |
+| -size         | Find files based on their size. e.g `–size +100k` finds files over 100 KiB in `size –size -5M` finds files less than 5MiB in size. Other units include `G` for GiB and `c` for bytes[^footnote]. |
 
 [^footnote]: Note: 1 Kibibyte (KiB) = 1024 bytes. 1 Mebibyte (MiB) = 1024 KiB. 1 Gibibyte = 1024 MiB.
 
@@ -312,28 +324,38 @@ The **`–ok`** option can also be used, to prompt the user for permission befor
 
 - **Viewing File Content**
 
-> There exist commands to open files and print their contents to standard output. One such example is the **`cat`** command. Let’s say we have a file called `hello.txt` on the Desktop.  
+  - **`cat`** command (*[Udemy 42: cat](https://www.udemy.com/course/linux-mastery/learn/lecture/8496430#overview)*)
 
-*By performing:*
-`cat ~/Desktop/hello.txt`
-This will print out the contents of `hello.txt` to standard output where it can be viewed or piped to other commands if required.
-One such command to pipe to would be the **`less`** command. The **`less`** command is known as a “pager” program and excels at allowing a user to page through large amounts of output in a more user-friendly manner than just using the terminal.
-*An example may be:*
-`cat ~/Desktop/hello.txt | less`
-*Or more simply:*
-`less ~/Desktop/hello.txt`
-By pressing the **`q`** key, the less command can be terminated and control regained over the shell.
+    > The **`cat`** command (*con**cat**enate*) joins files or prints their contents to standard output.
 
-| command                   | description                                                  |
-| ------------------------- | ------------------------------------------------------------ |
-| tac <path/to/file>        | Print a file’s contents to standard output, reversed vertically. |
-| rev <path/to/file>        | Print a file’s content to standard output, reversed horizontally (along rows). |
-| head –n 15 <path/to/file> | Read the first 15 lines from a file (10 by default if -n option not provided.) |
-| tail –n 15 <path/to/file> | Read the bottom 15 lines from a file (10 by default if -n option not provided.) |
+    *By performing:*
+    `cat ~/Desktop/hello.txt`
+    *This will print out the contents of `hello.txt` to standard output where it can be viewed or piped to other commands if required.*
+    `cat file[1-5].txt > file_content.txt`
+    *Copies the content of the files `file1.txt`, `file2.txt`, ... to the `file_content.txt`, it can be also used to joine mp3 files.*
 
-- **Sorting Data**  
+  - **`less`** command (*[Udemy 43: less](https://www.udemy.com/course/linux-mastery/learn/lecture/8496826#overview)*)
 
-> A useful ability when working with file data is to be able to sort it either alphabetically or numerically. This behaviour is handled using the sort command. By default, the **`sort`** command sorts smallest first. So if sorting alphabetically, it will by default sort from a – z. If sorting numerically, it will put the smallest numbers first, and largest last.  
+  > The **`less`** command is known as a “pager” program and excels at allowing a user to page through large amounts of output in a more user-friendly manner than just using the terminal.  
+
+  *An example may be:*
+  `cat ~/Desktop/hello.txt | less`
+  *Or more simply:*
+  `less ~/Desktop/hello.txt`
+  By pressing the **`q`** key, the **`less`** command can be terminated and control regained over the shell.
+
+| command               | description                                                  |
+| --------------------- | ------------------------------------------------------------ |
+| tac \<*FILE*>         | Print a file’s contents to standard output, reversed vertically. |
+| rev \<*FILE*>         | Print a file’s content to standard output, reversed horizontally (along rows). |
+| head –n 15  \<*FILE*> | Read the first 15 lines from a file (10 by default if -n option not provided.) |
+| tail –n 15  \<*FILE*> | Read the bottom 15 lines from a file (10 by default if -n option not provided.) |
+
+- **Sorting Data**  (*[Udemy 44: sort](https://www.udemy.com/course/linux-mastery/learn/lecture/8497382#overview)*)
+
+> A useful ability when working with file data is to be able to sort it either alphabetically or numerically.  
+
+This behaviour is handled using the **`sort`** command. By default, the **`sort`** command sorts smallest first. So if sorting alphabetically, it will by default sort from a – z. If sorting numerically, it will put the smallest numbers first, and largest last. 
 
 | command | description                              |
 | ------- | ---------------------------------------- |
@@ -341,19 +363,18 @@ By pressing the **`q`** key, the less command can be terminated and control rega
 | sort -n | Sort in a numerical manner.              |
 | sort -u | Sort data an only return unique entries. |
 
-It is also possible to sort tabular data using the **`sort`** command using one of the columns. This is possible by providing a **`KEYDEF`** as an argument to the **`–k`** option.
-`sort –k <KEYDEF>`
-**`KEYDEFS`** are made using a column number and then additional options can be added (without dashes).
+It is also possible to sort tabular data using the **`sort`** command using one of the columns. This is possible by providing a `KEYDEF` as an argument to the **`–k`** option (*[Udemy 45: tabular](https://www.udemy.com/course/linux-mastery/learn/lecture/8497384#overview)*). `sort –k <KEYDEF>`
+`KEYDEFS` are made using a column number and then additional options can be added (without dashes).
 *As an example:*
 `sort –k 5nr`
 The **`KEYDEF`** is **`5nr`**. This will sort using column 5 of the data, and sort numerically (**`-n option`**) but in reverse (**`-r option`**).
 
-- **Searching File Contents**  
+- **Searching File Contents**  (*[Udemy: 47: grep](https://www.udemy.com/course/linux-mastery/learn/lecture/8502228#overview)*)
 
-> The ability to search for and filter out what you want from a file or standard output makes working with the command line a much more efficient process. The command for this is called the **`grep`** command. The grep command will return all lines that match the particular piece of text (or regular
+> The ability to search for and filter out what you want from a file or standard output makes working with the command line a much more efficient process. The command for this is called the **`grep`** command. The **`grep`** command will return all lines that match the particular piece of text (or regular
 > expression) provided as a search term.  
 
-*For example:*
+*For example:* 
 `grep hello myfile.txt`
 Will return all lines containing the word “hello” in myfile.txt
 *and*
@@ -366,3 +387,86 @@ will return all lines with anything ending in “.conf” in data piped from the
 | grep -v | Invert the search. i.e return all lines that DON’T contain a certain search term. |
 | grep -c | Return the number of lines (count) that match a search term rather than the lines themselves. |
 
+## File Archiving and Compression
+- **The Overall Process**
+  Archiving and compressing files in Linux is a two-step process.
+  1. Create a Tarball:
+     A tarball is a way of bundling together the files that you want to archive. It is the "container" which can be compressed after.
+  2. Compress the tarball with a compression algorithm:
+     Compress that tarball with one of a variety of compression algorithms; leaving you with a compressed archive.
+
+1. **Creating a Tarball**
+
+​	`tar –cvf <TARBALL_NAME.tar> <FILE>…`
+
+| command / option      | description                                                  |
+| --------------------- | ------------------------------------------------------------ |
+| tar                   | command to create the **tar**ball                            |
+| –c                    | “**c**reate”. This allows us to create a tarball. **[required]** |
+| -v                    | "**v**erbose" output to verify the operation                 |
+| -f                    | Tells tar that the next argument is the name of the tarball. **[required]** |
+| \<*TARBALL_NAME.tar*> | The absolute or relative file path to where you want the tarball to be placed ending with the name of the tarball; e.g. `~/Desktop/myarchive.tar`<br />Note: the file ending **`.tar`** is a convention, the Linux system knows without it that it is a **`.tar`** file. |
+| \<FILE>               | File or files to be added to the tarball, only needs path if not in current directory.  Wildcards are accepted. |
+
+​	**1.1** **Checking a Tarball’s Contents**
+​	`tar –tf <TARBALL_NAME.tar>`
+
+| option | description                                                  |
+| ------ | ------------------------------------------------------------ |
+| -t     | “**t**est-label”. This allows us to check the contents of a tarball. (*Note -f is still **required***) |
+
+​	**1.2** **Adding to a Tarball**
+
+> A feature of the archive is that it allows for multiple files with the same name. If you append a file with the same name, then the file is just appended to the end of the archive without deleting the previous one. But when you extract the archive, it will extract the latest version (by its order inside the archive) of the file.  
+
+​	`tar –rvf <TARBALL_NAME.tar> <FILE>…`
+
+| option          | description                                                  |
+| --------------- | ------------------------------------------------------------ |
+| -r *or* -append | add(s)/append(s) file(s) to the tar ball. (*Note -f is still **required***) |
+
+​	`tar –uvf <TARBALL_NAME.tar> <FILE>…`
+
+| option | description                                                  |
+| ------ | ------------------------------------------------------------ |
+| -u     | The "**u**pdate" refreshes the files that are newer than the ones in the archive, so it works slightly different than the *–append* (or *-r*) option but provides the same functionality for the addition of a new file. (*Note -f is still **required***) |
+
+​	**1.3** **Extracting From a Tarball**
+
+> Extracting a tarball does not empty the tarball. You can extract from a tarball as many times as you want without affecting the tarball’s contents.
+
+​	`tar –xf <TARBALL_NAME.tar>`
+
+| option | description                                                  |
+| ------ | ------------------------------------------------------------ |
+| -x     | “**e**xtract”. This allows us to extract a tarball’s contents. (*Note -f is still **required***) |
+
+2. **Compressing Tarballs**
+
+> Tarballs are just containers for files. They don’t by themselves do any compression, but the can be compressed using a variety of compression algorithms The main types of compression algorithms are **`gzip`** and **`bzip2`**.
+
+The **`gzip`** compression algorithm tends to be faster than **`bzip2`** but, as a trade-off, **`gzip`** usually offers less compression.
+
+| command                       | description                                                  |
+| ----------------------------- | ------------------------------------------------------------ |
+| gzip *<FILE_NAME>*            | compressing with gzip[^footnote2]                            |
+| gunzip *<FILE_NAME>*          | decompressing with gunzip                                    |
+| bzip2 *<FILE_NAME>*           | compressing with bzip2[^footnote2]                           |
+| bunzip2 *<FILE_NAME>*         | decompressing with bunzip2                                   |
+| zip *<ZIP_FILE>* *\<FILE>*... | creating a .zip archive (*no tarball needed*) (*file name can contain wildcards*) |
+| unzip *<ZIP_FILE>*            | extracting a .zip archive                                    |
+
+[^footnote1]:When compressing with gzip, the file extension .gz is automatically added to the .tar archive. Therefore, the gzip compressed tar archive would, by convention, have the file extension .tar.gz
+[^footnote2]:When compressing with bzip2, the file extension .bz2 is automatically added to the .tar archive. Therefore, the bzip2 compressed tar archive would, by convention, have the file extension .tar.bz2
+3. **Doing it all in one step**
+
+   | command | example                                                  | description                                                  |
+   | ------- | -------------------------------------------------------- | ------------------------------------------------------------ |
+   | -z -c   | tar –**c**v**z**f *<TARBALL_NAME.tar>* *<FILE_NAME>* ... | **c**reating a tarball and compressing via gzip (*Note -f is still **required***) |
+   | -z -x   | tar –**x**v**z**f *<TARBALL_NAME.tar>*                   | decompressing a tarball and e**x**tracting via gzip (*Note -f is still **required***) |
+   | -j -c   | tar –**c**v**j**f *<TARBALL_NAME.tar>* *<FILE_NAME>* ... | **c**reating a tarball and compressing via bzip2 (*Note -f is still **required***) |
+   | -j -x   | tar –**x**v**j**f *<TARBALL_NAME.tar>*                   | decompressing a tarball and e**x**tracting via bzip2 (*Note -f is still **required***) |
+   | -J -c   | tar –**c**v**J**f *<TARBALL_NAME.tar>* *<FILE_NAME>* ... | **c**reating a tarball and compressing via xzip (*Note -f is still **required***) |
+   | -J -x   | tar –**x**v**J**f *<TARBALL_NAME.tar>* ...               | decompressing a tarball and e**x**tracting via xzip (*Note -f is still **required***) |
+
+   
